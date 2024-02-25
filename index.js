@@ -1,6 +1,3 @@
-
-
-
 const express = require('express')
 const axios = require('axios')
 const path = require('path')
@@ -21,6 +18,7 @@ app.use(bodyParser.urlencoded({ extended:false}))
 
 app.use(express.static(__dirname + '/public'))
 
+//ดูทั้งหมด
 app.get('/', async(req,res)=>{
    try{
     const respones = await axios.get(base_url + '/books')
@@ -30,7 +28,10 @@ app.get('/', async(req,res)=>{
     res.status(500).send('Error')
    }
 })
+//ดูทั้งหมด
 
+
+//ดูแต่ละอัน
 app.get('/book/:id',async(req,res)=>{
     try{
         const respones = await axios.get(base_url + '/books/' + req.params.id)
@@ -40,8 +41,12 @@ app.get('/book/:id',async(req,res)=>{
         res.status(500).send('Error')
        }
 })
+//ดูแต่ละอัน
 
-app.get('/create',(req,res)=>{ // show create desktop
+
+
+// show create desktop
+app.get('/create',(req,res)=>{ 
     res.render("create")
 })
 
@@ -55,7 +60,10 @@ app.post('/create',async(req,res)=>{
     res.status(500).send('Error')
    }
 })
+// show create desktop
 
+
+//update
 app.get('/update/:id',async(req,res)=>{
     try{
         const respones = await axios.get(
@@ -77,7 +85,9 @@ app.post('/update/:id',async(req,res)=>{
     res.status(500).send('Error')
    }
 })
+//update
 
+//delete
 app.get('/delete/:id',async(req,res)=>{
    try{
     await axios.delete(base_url + '/books/' + req.params.id)
@@ -87,5 +97,6 @@ app.get('/delete/:id',async(req,res)=>{
     res.status(500).send('Error')
    }
 })
+//delete
 
-app.listen(5500,()=> console.log(`Listening on port 5500`))
+app.listen(5500,()=> console.log(`Listening on port 5500`)) //เอาไว้บรรทัดสุดท้ายห้ามยุ่ง
