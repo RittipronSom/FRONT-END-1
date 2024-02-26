@@ -10,7 +10,7 @@ body {
     margin-top: 30px;
     margin-bottom: 50px;
     font-size: 36px;
-    color: #2C3E50;
+    color: #ff0000;
   }
   
   /* Style the table */
@@ -25,14 +25,14 @@ body {
   }
   
   th {
-    background-color: #2C3E50;
-    color: white;
+    background-color: #fd3d3d;
+    color: rgb(255, 255, 255);
     font-weight: 600;
     text-transform: uppercase;
   }
   
   tr:nth-child(even) {
-    background-color: #f5f5f5;
+    background-color: #ffffff;
   }
   
 /* Style the form */
