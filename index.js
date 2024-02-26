@@ -108,10 +108,10 @@ app.get('/movi/delete/:id',async(req,res)=>{
 
 
 //ดูทั้งหมด
-app.get('/movie', async(req,res)=>{
+app.get('/user', async(req,res)=>{
     try{
-     const respones = await axios.get(base_url + '/movie')
-     res.render("movie/books",{movie:respones.data})
+     const respones = await axios.get(base_url + '/user')
+     res.render("user/bookss",{user:respones.data})
     }catch(err){
      console.error(err)
      res.status(500).send('Error')
@@ -121,10 +121,10 @@ app.get('/movie', async(req,res)=>{
  
  
  //ดูแต่ละอัน
- app.get('/movie/:id',async(req,res)=>{
+ app.get('/user/:id',async(req,res)=>{
      try{
-         const respones = await axios.get(base_url + '/movie/' + req.params.id)
-         res.render("movie/book",{movie:respones.data})
+         const respones = await axios.get(base_url + '/user/' + req.params.id)
+         res.render("user/bookk",{user:respones.data})
         }catch(err){
          console.error(err)
          res.status(500).send('Error')
@@ -135,15 +135,15 @@ app.get('/movie', async(req,res)=>{
  
  
  // show create desktop
- app.get('/movi/create',(req,res)=>{ 
-     res.render("movie/create")
+ app.get('/use/create',(req,res)=>{ 
+     res.render("user/create")
  })
  
- app.post('/movi/create',async(req,res)=>{
+ app.post('/use/create',async(req,res)=>{
     try{
-     const data = { movie_name: req.body.movie_name , genre: req.body.genre}
-     await axios.post(base_url + '/movie' ,data)
-     res.redirect('/movie')
+     const data = { username: req.body.username , email: req.body.email}
+     await axios.post(base_url + '/user' ,data)
+     res.redirect('/user')
     }catch(err){
      console.error(err)
      res.status(500).send('Error')
@@ -153,22 +153,22 @@ app.get('/movie', async(req,res)=>{
  
  
  //update
- app.get('/movie/update/:id',async(req,res)=>{
+ app.get('/user/update/:id',async(req,res)=>{
      try{
          const respones = await axios.get(
-             base_url + '/movie/' + req.params.id) 
-             res.render('movie/update',{movie: respones.data})
+             base_url + '/user/' + req.params.id) 
+             res.render('user/update',{user: respones.data})
    } catch(err){
        console.error(err)
        res.status(500).send('Error')
      }
  })
  
- app.post('/movie/update/:id',async(req,res)=>{
+ app.post('/user/update/:id',async(req,res)=>{
     try{
-     const data = { movie_name: req.body.movie_name , genre: req.body.genre}
-     await axios.put(base_url + '/movie/' + req.params.id,data)
-     res.redirect('/movie')
+        const data = { username: req.body.username , email: req.body.email}
+     await axios.put(base_url + '/user/' + req.params.id,data)
+     res.redirect('/user')
     }catch(err){
      console.error(err)
      res.status(500).send('Error')
@@ -177,10 +177,10 @@ app.get('/movie', async(req,res)=>{
  //update
  
  //delete
- app.get('/movi/delete/:id',async(req,res)=>{
+ app.get('/use/delete/:id',async(req,res)=>{
     try{
-     await axios.delete(base_url + '/movie/' + req.params.id)
-     res.redirect('/movie')
+     await axios.delete(base_url + '/user/' + req.params.id)
+     res.redirect('/user')
     }catch(err){
      console.error(err)
      res.status(500).send('Error')
