@@ -104,6 +104,7 @@ app.get('/movi/delete/:id',async(req,res)=>{
 //delete
 
 
+
 //222222222222222
 
 
