@@ -18,11 +18,15 @@ app.use(bodyParser.urlencoded({ extended:false}))
 
 app.use(express.static(__dirname + '/public'))
 
+
+//1111111111111
+
+
 //ดูทั้งหมด
-app.get('/', async(req,res)=>{
+app.get('/movie', async(req,res)=>{
    try{
     const respones = await axios.get(base_url + '/movie')
-    res.render("books",{movie:respones.data})
+    res.render("movie/books",{movie:respones.data})
    }catch(err){
     console.error(err)
     res.status(500).send('Error')
@@ -35,7 +39,7 @@ app.get('/', async(req,res)=>{
 app.get('/movie/:id',async(req,res)=>{
     try{
         const respones = await axios.get(base_url + '/movie/' + req.params.id)
-        res.render("book",{movie:respones.data})
+        res.render("movie/book",{movie:respones.data})
        }catch(err){
         console.error(err)
         res.status(500).send('Error')
@@ -46,15 +50,15 @@ app.get('/movie/:id',async(req,res)=>{
 
 
 // show create desktop
-app.get('/create',(req,res)=>{ 
-    res.render("create")
+app.get('/movi/create',(req,res)=>{ 
+    res.render("movie/create")
 })
 
-app.post('/create',async(req,res)=>{
+app.post('/movi/create',async(req,res)=>{
    try{
     const data = { movie_name: req.body.movie_name , genre: req.body.genre}
     await axios.post(base_url + '/movie' ,data)
-    res.redirect('/')
+    res.redirect('/movie')
    }catch(err){
     console.error(err)
     res.status(500).send('Error')
@@ -64,22 +68,22 @@ app.post('/create',async(req,res)=>{
 
 
 //update
-app.get('/update/:id',async(req,res)=>{
+app.get('/movie/update/:id',async(req,res)=>{
     try{
         const respones = await axios.get(
             base_url + '/movie/' + req.params.id) 
-            res.render('update',{movie: respones.data})
+            res.render('movie/update',{movie: respones.data})
   } catch(err){
       console.error(err)
       res.status(500).send('Error')
     }
 })
 
-app.post('/update/:id',async(req,res)=>{
+app.post('/movie/update/:id',async(req,res)=>{
    try{
     const data = { movie_name: req.body.movie_name , genre: req.body.genre}
     await axios.put(base_url + '/movie/' + req.params.id,data)
-    res.redirect('/')
+    res.redirect('/movie')
    }catch(err){
     console.error(err)
     res.status(500).send('Error')
@@ -88,15 +92,100 @@ app.post('/update/:id',async(req,res)=>{
 //update
 
 //delete
-app.get('/delete/:id',async(req,res)=>{
+app.get('/movi/delete/:id',async(req,res)=>{
    try{
     await axios.delete(base_url + '/movie/' + req.params.id)
-    res.redirect('/')
+    res.redirect('/movie')
    }catch(err){
     console.error(err)
     res.status(500).send('Error')
    }
 })
 //delete
+
+
+//222222222222222
+
+
+//ดูทั้งหมด
+app.get('/movie', async(req,res)=>{
+    try{
+     const respones = await axios.get(base_url + '/movie')
+     res.render("movie/books",{movie:respones.data})
+    }catch(err){
+     console.error(err)
+     res.status(500).send('Error')
+    }
+ })
+ //ดูทั้งหมด
+ 
+ 
+ //ดูแต่ละอัน
+ app.get('/movie/:id',async(req,res)=>{
+     try{
+         const respones = await axios.get(base_url + '/movie/' + req.params.id)
+         res.render("movie/book",{movie:respones.data})
+        }catch(err){
+         console.error(err)
+         res.status(500).send('Error')
+        }
+ })
+ //ดูแต่ละอัน
+ 
+ 
+ 
+ // show create desktop
+ app.get('/movi/create',(req,res)=>{ 
+     res.render("movie/create")
+ })
+ 
+ app.post('/movi/create',async(req,res)=>{
+    try{
+     const data = { movie_name: req.body.movie_name , genre: req.body.genre}
+     await axios.post(base_url + '/movie' ,data)
+     res.redirect('/movie')
+    }catch(err){
+     console.error(err)
+     res.status(500).send('Error')
+    }
+ })
+ // show create desktop
+ 
+ 
+ //update
+ app.get('/movie/update/:id',async(req,res)=>{
+     try{
+         const respones = await axios.get(
+             base_url + '/movie/' + req.params.id) 
+             res.render('movie/update',{movie: respones.data})
+   } catch(err){
+       console.error(err)
+       res.status(500).send('Error')
+     }
+ })
+ 
+ app.post('/movie/update/:id',async(req,res)=>{
+    try{
+     const data = { movie_name: req.body.movie_name , genre: req.body.genre}
+     await axios.put(base_url + '/movie/' + req.params.id,data)
+     res.redirect('/movie')
+    }catch(err){
+     console.error(err)
+     res.status(500).send('Error')
+    }
+ })
+ //update
+ 
+ //delete
+ app.get('/movi/delete/:id',async(req,res)=>{
+    try{
+     await axios.delete(base_url + '/movie/' + req.params.id)
+     res.redirect('/movie')
+    }catch(err){
+     console.error(err)
+     res.status(500).send('Error')
+    }
+ })
+ //delete
 
 app.listen(5500,()=> console.log(`Listening on port 5500`)) //เอาไว้บรรทัดสุดท้ายห้ามยุ่ง
