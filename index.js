@@ -53,7 +53,7 @@ app.get('/create',(req,res)=>{
 app.post('/create',async(req,res)=>{
    try{
     const data = { movie_name: req.body.movie_name , genre: req.body.genre}
-    await axios.post(base_url + '/books' ,data)
+    await axios.post(base_url + '/movie' ,data)
     res.redirect('/')
    }catch(err){
     console.error(err)
@@ -90,7 +90,7 @@ app.post('/update/:id',async(req,res)=>{
 //delete
 app.get('/delete/:id',async(req,res)=>{
    try{
-    await axios.delete(base_url + '/books/' + req.params.id)
+    await axios.delete(base_url + '/movie/' + req.params.id)
     res.redirect('/')
    }catch(err){
     console.error(err)
