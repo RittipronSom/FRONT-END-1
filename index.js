@@ -21,8 +21,8 @@ app.use(express.static(__dirname + '/public'))
 //ดูทั้งหมด
 app.get('/', async(req,res)=>{
    try{
-    const respones = await axios.get(base_url + '/books')
-    res.render("books",{books:respones.data})
+    const respones = await axios.get(base_url + '/movie')
+    res.render("books",{movie:respones.data})
    }catch(err){
     console.error(err)
     res.status(500).send('Error')
@@ -32,10 +32,10 @@ app.get('/', async(req,res)=>{
 
 
 //ดูแต่ละอัน
-app.get('/book/:id',async(req,res)=>{
+app.get('/movie/:id',async(req,res)=>{
     try{
-        const respones = await axios.get(base_url + '/books/' + req.params.id)
-        res.render("book",{book:respones.data})
+        const respones = await axios.get(base_url + '/movie/' + req.params.id)
+        res.render("book",{movie:respones.data})
        }catch(err){
         console.error(err)
         res.status(500).send('Error')
@@ -52,7 +52,7 @@ app.get('/create',(req,res)=>{
 
 app.post('/create',async(req,res)=>{
    try{
-    const data = { title: req.body.title , author: req.body.author}
+    const data = { movie_name: req.body.movie_name , genre: req.body.genre}
     await axios.post(base_url + '/books' ,data)
     res.redirect('/')
    }catch(err){
@@ -67,8 +67,8 @@ app.post('/create',async(req,res)=>{
 app.get('/update/:id',async(req,res)=>{
     try{
         const respones = await axios.get(
-            base_url + '/books/' + req.params.id) 
-            res.render('update',{book: respones.data})
+            base_url + '/movie/' + req.params.id) 
+            res.render('update',{movie: respones.data})
   } catch(err){
       console.error(err)
       res.status(500).send('Error')
@@ -77,8 +77,8 @@ app.get('/update/:id',async(req,res)=>{
 
 app.post('/update/:id',async(req,res)=>{
    try{
-    const data = { title: req.body.title , author: req.body.author}
-    await axios.put(base_url + '/books/' + req.params.id,data)
+    const data = { movie_name: req.body.movie_name , genre: req.body.genre}
+    await axios.put(base_url + '/movie/' + req.params.id,data)
     res.redirect('/')
    }catch(err){
     console.error(err)
