@@ -21,7 +21,7 @@
                 <td><%= movie[i].movie_name %></td>
                 <td><%= movie[i].genre %></td>
                 <td>
-                    <a href="/movie/<%= movie[i].movie_id %>">View</a>
+                    <a href="/movie/<%= movie[i].movie_id %>">จอง</a>
                     <a href="/movie/update/<%= movie[i].movie_id %>">Edit</a>
                     <a href="/movi/delete/<%= movie[i].movie_id %>">Delete</a>
                 </td>
@@ -29,6 +29,5 @@
         <% } %>
     </table>
     <a href="/movi/create">Create New movie</a>
-    <a href="/movi/book" >จอง</a>
 </body>
 </html>
