@@ -189,4 +189,181 @@ app.get('/user', async(req,res)=>{
  })
  //delete
 
+
+
+
+
+ //333333333333333333333
+
+
+//ดูทั้งหมด
+app.get('/showtime', async(req,res)=>{
+    try{
+     const respones = await axios.get(base_url + '/showtime')
+     res.render("showtime/bookssss",{showtime:respones.data})
+    }catch(err){
+     console.error(err)
+     res.status(500).send('Error')
+    }
+ })
+ //ดูทั้งหมด
+ 
+ 
+ //ดูแต่ละอัน
+ app.get('/showtime/:id',async(req,res)=>{
+     try{
+         const respones = await axios.get(base_url + '/showtime/' + req.params.id)
+         res.render("showtime/bookkkk",{showtime:respones.data})
+        }catch(err){
+         console.error(err)
+         res.status(500).send('Error')
+        }
+ })
+ //ดูแต่ละอัน
+ 
+ 
+ 
+ // show create desktop
+ app.get('/showtim/create',(req,res)=>{ 
+     res.render("showtime/create")
+ })
+ 
+ app.post('/showtim/create',async(req,res)=>{
+    try{
+     const data = { starttime: req.body.starttime , theater: req.body.theater}
+     await axios.post(base_url + '/showtime' ,data)
+     res.redirect('/showtime')
+    }catch(err){
+     console.error(err)
+     res.status(500).send('Error')
+    }
+ })
+ // show create desktop
+ 
+ 
+ //update
+ app.get('/showtime/update/:id',async(req,res)=>{
+     try{
+         const respones = await axios.get(
+             base_url + '/showtime/' + req.params.id) 
+             res.render('showtime/update',{showtime: respones.data})
+   } catch(err){
+       console.error(err)
+       res.status(500).send('Error')
+     }
+ })
+ 
+ app.post('/showtime/update/:id',async(req,res)=>{
+    try{
+        const data = { starttime: req.body.starttime , theater: req.body.theater}
+     await axios.put(base_url + '/showtime/' + req.params.id,data)
+     res.redirect('/showtime')
+    }catch(err){
+     console.error(err)
+     res.status(500).send('Error')
+    }
+ })
+ //update
+ 
+ //delete
+ app.get('/showtim/delete/:id',async(req,res)=>{
+    try{
+     await axios.delete(base_url + '/showtime/' + req.params.id)
+     res.redirect('/showtime')
+    }catch(err){
+     console.error(err)
+     res.status(500).send('Error')
+    }
+ })
+ //delete
+
+
+
+
+ //44444444444444444444
+
+
+//ดูทั้งหมด
+app.get('/Reservation', async(req,res)=>{
+    try{
+     const respones = await axios.get(base_url + '/showtime')
+     res.render("Reservation/booksss",{Reservation:respones.data})
+    }catch(err){
+     console.error(err)
+     res.status(500).send('Error')
+    }
+ })
+ //ดูทั้งหมด
+ 
+ 
+ //ดูแต่ละอัน
+ app.get('/Reservation/:id',async(req,res)=>{
+     try{
+         const respones = await axios.get(base_url + '/showtime/' + req.params.id)
+         res.render("Reservation/bookkk",{Reservation:respones.data})
+        }catch(err){
+         console.error(err)
+         res.status(500).send('Error')
+        }
+ })
+ //ดูแต่ละอัน
+ 
+ 
+ 
+ // show create desktop
+ app.get('/Reservatio/create',(req,res)=>{ 
+     res.render("Reservatio/create")
+ })
+ 
+ app.post('/Reservation/create',async(req,res)=>{
+    try{
+        const data = { starttime: req.body.starttime , theater: req.body.theater}
+     await axios.post(base_url + '/showtime' ,data)
+     res.redirect('/Reservation')
+    }catch(err){
+     console.error(err)
+     res.status(500).send('Error')
+    }
+ })
+ // show create desktop
+ 
+ 
+ //update
+ app.get('/Reservation/update/:id',async(req,res)=>{
+     try{
+         const respones = await axios.get(
+             base_url + '/showtime/' + req.params.id) 
+             res.render('Reservation/update',{Reservation: respones.data})
+   } catch(err){
+       console.error(err)
+       res.status(500).send('Error')
+     }
+ })
+ 
+ app.post('/Reservation/update/:id',async(req,res)=>{
+    try{
+        const data = { starttime: req.body.starttime , theater: req.body.theater}
+     await axios.put(base_url + '/showtime/' + req.params.id,data)
+     res.redirect('/Reservation')
+    }catch(err){
+     console.error(err)
+     res.status(500).send('Error')
+    }
+ })
+ //update
+ 
+ //delete
+ app.get('/Reservatio/delete/:id',async(req,res)=>{
+    try{
+     await axios.delete(base_url + '/showtime/' + req.params.id)
+     res.redirect('/Reservation')
+    }catch(err){
+     console.error(err)
+     res.status(500).send('Error')
+    }
+ })
+ //delete
+
+
+
 app.listen(5500,()=> console.log(`Listening on port 5500`)) //เอาไว้บรรทัดสุดท้ายห้ามยุ่ง
