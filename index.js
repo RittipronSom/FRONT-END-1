@@ -279,14 +279,13 @@ app.get('/showtime', async(req,res)=>{
 
 
 
-
- //44444444444444444444
+  //44444444444444444444
 
 
 //ดูทั้งหมด
 app.get('/Reservation', async(req,res)=>{
     try{
-     const respones = await axios.get(base_url + '/showtime')
+     const respones = await axios.get(base_url + '/Reservation')
      res.render("Reservation/booksss",{Reservation:respones.data})
     }catch(err){
      console.error(err)
@@ -299,8 +298,8 @@ app.get('/Reservation', async(req,res)=>{
  //ดูแต่ละอัน
  app.get('/Reservation/:id',async(req,res)=>{
      try{
-         const respones = await axios.get(base_url + '/showtime/' + req.params.id)
-         res.render("Reservation/bookkk",{Reservation:respones.data})
+         const respones = await axios.get(base_url + '/Reservation/' + req.params.id)
+         res.render("Reservation/bookkk",{showtime:respones.data})
         }catch(err){
          console.error(err)
          res.status(500).send('Error')
@@ -312,13 +311,13 @@ app.get('/Reservation', async(req,res)=>{
  
  // show create desktop
  app.get('/Reservatio/create',(req,res)=>{ 
-     res.render("Reservatio/create")
+     res.render("Reservation/create")
  })
  
- app.post('/Reservation/create',async(req,res)=>{
+ app.post('/Reservatio/create',async(req,res)=>{
     try{
-        const data = { starttime: req.body.starttime , theater: req.body.theater}
-     await axios.post(base_url + '/showtime' ,data)
+    const data = { Reservation_id: req.body.Reservation_id , Reservation_Date_Time: req.body.Reservation_Date_Time}
+     await axios.post(base_url + '/Reservation' ,data)
      res.redirect('/Reservation')
     }catch(err){
      console.error(err)
@@ -332,7 +331,7 @@ app.get('/Reservation', async(req,res)=>{
  app.get('/Reservation/update/:id',async(req,res)=>{
      try{
          const respones = await axios.get(
-             base_url + '/showtime/' + req.params.id) 
+             base_url + '/Reservation/' + req.params.id) 
              res.render('Reservation/update',{Reservation: respones.data})
    } catch(err){
        console.error(err)
@@ -342,8 +341,8 @@ app.get('/Reservation', async(req,res)=>{
  
  app.post('/Reservation/update/:id',async(req,res)=>{
     try{
-        const data = { starttime: req.body.starttime , theater: req.body.theater}
-     await axios.put(base_url + '/showtime/' + req.params.id,data)
+        const data = { Reservation_id: req.body.Reservation_id , Reservation_Date_Time: req.body.Reservation_Date_Time}
+     await axios.put(base_url + '/Reservation/' + req.params.id,data)
      res.redirect('/Reservation')
     }catch(err){
      console.error(err)
@@ -355,7 +354,7 @@ app.get('/Reservation', async(req,res)=>{
  //delete
  app.get('/Reservatio/delete/:id',async(req,res)=>{
     try{
-     await axios.delete(base_url + '/showtime/' + req.params.id)
+     await axios.delete(base_url + '/Reservation/' + req.params.id)
      res.redirect('/Reservation')
     }catch(err){
      console.error(err)
@@ -363,6 +362,9 @@ app.get('/Reservation', async(req,res)=>{
     }
  })
  //delete
+
+
+
 
 
 
