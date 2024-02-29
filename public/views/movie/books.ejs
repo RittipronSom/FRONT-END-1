@@ -4,17 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie</title>
+    <title>Product</title>
     <link rel="stylesheet" href="../css/style.css"/>
 
 </head>
 <body>
-    <h1>จองตั่วหนัง</h1>
+    
+
+    <h1>Product</h1>
+    <a href="/movi/create">Home</a>
+    <a href="/Reservation">Reservation</a>
+    <a href="/showtime">showtime</a>
+    <a href="/user">User</a>
     <table>
         <tr>
+            <th>Product ID</th>
             <th>Name</th>
-            <th>genre</th>
-            <th>Action</th>
+            <th>price</th>
+            <th>Quantity available</th>
+            
         </tr>
         <% for(var i=0; i < movie.length; i++) { %>
             <tr>
@@ -29,5 +37,6 @@
         <% } %>
     </table>
     <a href="/movi/create">Create New movie</a>
+    
 </body>
 </html>
