@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order_Details</title>
+    <link rel="stylesheet" href="../css/style.css"/>
+
+</head>
+<body>
+    <h1>order_detail</h1>
+    <a href="/product">Home</a>
+    <a href="/order">Order</a>
+    <a href="/order_detail">Order_Detail</a>
+    <a href="/User">User</a>
+    <table>
+        <tr>
+            <th>Order_dID</th>
+            <th>user_ID</th>
+            <th>product_ID</th>
+            <th>Reservation_Date_Time</th>
+            <th>Other</th>
+        </tr>
+        <% for(var i=0; i < order_detail.length; i++) { %>
+            <tr>
+                <td><%= order_detail[i].Order_dID %></td>
+                <td><%= order_detail[i].user_ID %></td>
+                <td><%= order_detail[i].product_ID %></td>
+                <td><%= order_detail[i].Reservation_Date_Time %></td>
+                <td>
+                    <a href="/order_detail/<%= order_detail[i].Order_dID %>">View</a>
+                    <a href="/order_detail/update/<%= order_detail[i].Order_dID %>">Edit</a>
+                    <a href="/order_detai/delete/<%= order_detail[i].Order_dID %>">Delete</a>
+                </td>
+            </tr>
+        <% } %>
+    </table>
+    <a href="order_detail/create">Create New user</a>
+</body>
+</html>

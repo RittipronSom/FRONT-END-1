@@ -10,7 +10,7 @@ body {
     margin-top: 30px;
     margin-bottom: 50px;
     font-size: 36px;
-    color: #ff0000;
+    color: #ff0015;
   }
   
   /* Style the table */
@@ -25,7 +25,7 @@ body {
   }
   
   th {
-    background-color: #ff0000;
+    background-color: #15d1df;
     color: rgb(255, 255, 255);
     font-weight: 600;
     text-transform: uppercase;
@@ -127,8 +127,8 @@ a {
   margin: 10px;
   text-decoration: none;
   color: #ffffff;
-  background-color: #888888;
-  border: 2px solid #888888;
+  background-color: #2b2579;
+  border: 2px solid #3a42b6;
   border-radius: 5px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
@@ -137,8 +137,8 @@ a {
 
 /* เมื่อชี้ไปที่ลิงค์ */
 a:hover {
-  background-color: #ff0000;
-  border-color: #ff0000;
+  background-color: #9c7979;
+  border-color: #b48c8c52;
   box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
   transform: translateY(-2px);
 }

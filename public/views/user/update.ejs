@@ -7,18 +7,21 @@
 
 </head>
 <body>
-    <h1>update user</h1>
-    <form method="post" action="/user/update/<%= user.user_id %>">
+    <h1>update User</h1>
+    <form method="post" action="/User/update/<%= User.user_id %>">
         <label for="username" >username:</label>
-        <input type="text" id="username" name="username" value="<%= user.username %>">
+        <input type="text" id="username" name="username" value="<%= User.username %>">
         <br>
         <label for="email">email:</label>
-        <input type="text" id="email" name="email" value="<%= user.email %>">
+        <input type="text" id="email" name="email" value="<%= User.email %>">
         <br>
+        <label for="phone" >phone:</label>
+        <input type="text" id="phone" name="phone" value="<%= User.phone %>">
+        <br>
+
         <input type="submit" value="Update">
     </form>
-    <a href="/user/<%= user.id%>">View</a>
-    <a href="/user/delete/<%= user.id%>">Delete</a>
-    <a href="/user">Back to list</a>
+
+    <a href="/User">Back to list</a>
 </body>
 </html>

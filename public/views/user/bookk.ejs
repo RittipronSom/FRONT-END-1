@@ -7,10 +7,11 @@
     <link rel="stylesheet" href="../css/style.css"/>
 </head>
 <body>
-    <h1><%= user.username %></h1>
-    <p>email: <%= user.email %></p>
-    <a href="/user/update/<%= user.user_id %>">Edit</a>
-    <a href="/use/delete/<%= user.user_id %>">Delete</a>
-    <a href="/user">Back to List</a>
+    <h1><%= User.username %></h1>
+    <p>email: <%= User.email %></p>
+    <p>phone: <%= User.phone %></p>
+
+    <a href="/User">Back to List</a>
 </body>
 </html>
+

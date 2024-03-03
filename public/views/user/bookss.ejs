@@ -10,28 +10,34 @@
 </head>
 <body>
     <h1>รายชื่อ</h1>
-    <a href="/movi/create">Home</a>
-    <a href="/Reservation">Reservation</a>
-    <a href="/showtime">showtime</a>
-    <a href="/user">User</a>
+    <a href="/product">Home</a>
+    <a href="/order">Order</a>
+    <a href="/order_detail">Order_Detail</a>
+    <a href="/User">User</a>
     <table>
         <tr>
             <th>Name</th>
             <th>email</th>
-            <th>Action</th>
+            <th>phone</th>
+            <th>other</th>
+
         </tr>
-        <% for(var i=0; i < user.length; i++) { %>
+        <% for(var i=0; i < User.length; i++) { %>
             <tr>
-                <td><%= user[i].username %></td>
-                <td><%= user[i].email %></td>
+                <td><%= User[i].username %></td>
+                <td><%= User[i].email %></td>
+                <td><%= User[i].phone %></td>
+                
+                
+
                 <td>
-                    <a href="/user/<%= user[i].user_id %>">View</a>
-                    <a href="/user/update/<%= user[i].user_id %>">Edit</a>
-                    <a href="/use/delete/<%= user[i].user_id %>">Delete</a>
+                    <a href="/User/<%= User[i].user_id %>">View</a>
+                    <a href="/User/update/<%= User[i].user_id %>">Edit</a>
+                    <a href="/User/delete/<%= User[i].user_id %>">Delete</a>
                 </td>
             </tr>
         <% } %>
     </table>
-    <a href="/use/create">Create New user</a>
+    <a href="/Use/create">Create New User</a>
 </body>
 </html>
