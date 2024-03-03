@@ -28,7 +28,7 @@
                 <td><%= product[i].price %></td>
                 <td><%= product[i].quantity_available %></td>
                 <td>
-                    <a href="/order">ADD</a>
+                    <a href="/Product/<%= product[i].product_ID %>">View</a>
                     <a href="/Product/update/<%= product[i].product_ID %>">Edit</a>
                     <a href="/product/delete/<%= product[i].product_ID %>">Delete</a>
                 </td>

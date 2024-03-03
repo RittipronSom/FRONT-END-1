@@ -150,13 +150,13 @@ app.post('/User/update/:id', async (req, res) => {
 });
 
 // delete
-app.get('/User/delete/:id', async (req, res) => {
+app.get('/Use/delete/:id', async (req, res) => {
     try {
         await axios.delete(base_url + '/User/' + req.params.id);
         res.redirect('/User');
     } catch (err) {
         console.error(err);
-        res.status(500).send('Error');
+        res.status(500).send(err);
     }
 });
 
@@ -194,17 +194,17 @@ app.get('/order_detai/create', (req, res) => {
 
 app.post('/order_detai/create', async (req, res) => {
     try {
-        const data = { Order_ID: req.body.Order_ID, Order_dID: req.body.Order_dID, Price: req.body.Price };
+        const data = { Order_ID: req.body.Order_ID, user_ID: req.body.user_ID, product_ID: req.body.product_ID };
         await axios.post(base_url + '/order_detail', data);
         res.redirect('/order_detail');
     } catch (err) {
         console.error(err);
-        res.status(500).send('Error1');
+        res.status(500).send(err);
     }
 });
 
 // อัพเดท
-app.get('/order_detail/update/:id', async (req, res) => {
+app.get('/order_detai/update/:id', async (req, res) => {
     try {
         const response = await axios.get(base_url + '/order_detail/' + req.params.id);
         res.render('order_detail/update', { order_detail: response.data });
@@ -214,19 +214,19 @@ app.get('/order_detail/update/:id', async (req, res) => {
     }
 });
 
-app.post('/order_detail/update/:id', async (req, res) => {
+app.post('/order_detai/update/:id', async (req, res) => {
     try {
-        const response = await axios.get(base_url + '/order_detail/' + req.params.id);
+        const data = { Order_ID: req.body.Order_ID, user_ID: req.body.user_ID, product_ID: req.body.product_ID };
         await axios.put(base_url + '/order_detail/' + req.params.id, data);
         res.redirect('/order_detail');
     } catch (err) {
         console.error(err);
-        res.status(500).send('Error');
+        res.status(500).send(err);
     }
 });
 
 // ลบ
-app.get('/order_detail/delete/:id', async (req, res) => {
+app.get('/order_detai/delete/:id', async (req, res) => {
     try {
         await axios.delete(base_url + '/order_detail/' + req.params.id);
         res.redirect('/order_detail');
@@ -299,7 +299,7 @@ app.post('/order/update/:id', async (req, res) => {
 });
 
 // ลบ
-app.get('/order/delete/:id', async (req, res) => {
+app.get('/orde/delete/:id', async (req, res) => {
    try {
        await axios.delete(base_url + '/order/' + req.params.id);
        res.redirect('/order');
