@@ -12,14 +12,13 @@
     <h1>order_detail</h1>
     <a href="/product">Home</a>
     <a href="/order">Order</a>
-    <a href="/order_detail">Order_Detail</a>
     <a href="/User">User</a>
+    <a href="/order_detail">Order_Detail</a> 
     <table>
         <tr>
             <th>Order_dID</th>
-            <th>user_ID</th>
-            <th>product_ID</th>
-            <th>Reservation_Date_Time</th>
+            <th>USERNAME</th>
+            <th>product</th>
             <th>Other</th>
         </tr>
         <% for(var i=0; i < order_detail.length; i++) { %>
@@ -27,7 +26,7 @@
                 <td><%= order_detail[i].Order_dID %></td>
                 <td><%= order_detail[i].user_ID %></td>
                 <td><%= order_detail[i].product_ID %></td>
-                <td><%= order_detail[i].Reservation_Date_Time %></td>
+               
                 <td>
                     <a href="/order_detail/<%= order_detail[i].Order_dID %>">View</a>
                     <a href="/order_detai/update/<%= order_detail[i].Order_dID %>">Edit</a>
