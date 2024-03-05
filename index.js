@@ -168,8 +168,10 @@ app.get('/Use/delete/:id', async (req, res) => {
 // ดูทั้งหมด
 app.get('/order_detail', async (req, res) => {
     try {
+        const user = await axios.get(base_url + '/User');
+        const product = await axios.get(base_url + '/product');
         const response = await axios.get(base_url + '/order_detail');
-        res.render("order_detail/bookssss", { order_detail: response.data });
+        res.render("order_detail/bookssss", { order_detail: response.data , user: user.data, product: product.data});
     } catch (err) {
         console.error(err);
         res.status(500).send('Error');
@@ -267,7 +269,7 @@ app.get('/orde/create', (req, res) => {
 
 app.post('/orde/create', async (req, res) => {
    try {
-       const data = { Order_ID: req.body.Order_ID, Order_dID: req.body.Order_dID, Price: req.body.Price };
+       const data = {  Order_dID: req.body.Order_dID };
        await axios.post(base_url + '/order', data);
        res.redirect('/order');
    } catch (err) {
@@ -289,7 +291,7 @@ app.get('/order/update/:id', async (req, res) => {
 
 app.post('/order/update/:id', async (req, res) => {
    try {
-      const data = { Order_ID: req.body.Order_ID, Order_dID: req.body.Order_dID, Price: req.body.Price };
+      const data = { Order_dID: req.body.Order_dID};
        await axios.put(base_url + '/order/' + req.params.id, data);
        res.redirect('/order');
    } catch (err) {

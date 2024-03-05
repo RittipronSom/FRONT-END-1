@@ -9,16 +9,9 @@
 <body>
     <h1>update Order</h1>
     <form method="post" action="/orde/update/<%= orde.orde %>">
-        <label for="Order_ID" >Order_ID:</label>
-        <input type="text" id="Order_ID" name="Order_ID" value="<%= order.Order_ID %>">
-        <br>
-
+        
         <label for="Order_dID">Order_dID:</label>
         <input type="text" id="Order_dID" name="Order_dID" value="<%= order.Order_dID %>">
-        <br>
-
-        <label for="Price">Price:</label>
-        <input type="text" id="Price" name="Price" value="<%= order.Price %>">
         <br>
 
         <input type="submit" value="Update">
