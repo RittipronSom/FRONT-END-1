@@ -20,13 +20,29 @@
         <tr>
             <th>Order_ID</th>
             <th>Order Detail</th>
+            <th>Product Name</th>
             <th>Other</th>
         </tr>
         <% for(var i=0; i < order.length; i++) { %>
             <tr>
                 <td><%= order[i].Order_ID %></td>
                 <td><%= order[i].Order_dID %></td>
-                
+
+                <% 
+                var name = ""
+                for(var k=0; k < product.length; k++) { 
+                    for(var j =0; j < order[i].order_details.length; j++ ){
+                        if(order[i].order_details[j].product_ID == product[k].product_ID){
+                            
+                        name += product[k].product_name+","
+                           
+                            
+                        }
+                    }
+                   
+                }
+                %>
+                <td><%= name %></td>
                 <td>
 
                     <a href="/orde/delete/<%= order[i].Order_ID %>">Delete</a>

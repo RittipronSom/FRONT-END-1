@@ -243,8 +243,11 @@ app.get('/order_detai/delete/:id', async (req, res) => {
 // ดูทั้งหมด
 app.get('/order', async (req, res) => {
    try {
+         const user = await axios.get(base_url + '/User');
+        const product = await axios.get(base_url + '/product');
+    
        const response = await axios.get(base_url + '/order');
-       res.render("order/booksss", { order: response.data });
+       res.render("order/booksss", { order: response.data , user: user.data, product: product.data});
    } catch (err) {
        console.error(err);
        res.status(500).send('Error');
