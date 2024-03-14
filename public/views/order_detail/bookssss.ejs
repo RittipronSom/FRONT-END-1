@@ -9,14 +9,14 @@
 
 </head>
 <body>
-    <h1>order_detail</h1>
-    <a href="/product">Home</a>
-    <a href="/order">Order</a>
-    <a href="/User">User</a>
-    <a href="/order_detail">Order_Detail</a> 
+    <h1>🎮 GAMING GEAR SHOP 🎮</h1>
+    <a href="/product">สินค้า</a>
+    <a href="/order">ออเดอร์</a>
+    <a href="/User">ชื่อผู้ใช้</a>
+    <a href="/order_detail">รายละเอียดออเดอร์</a> 
     <table>
         <tr>
-            <th>OrderID</th>
+            <!-- <th>OrderID</th> -->
             <th>Order_dID</th>
             <th>USERNAME</th>
             <th>product</th>
@@ -24,7 +24,7 @@
         </tr>
         <% for(var i=0; i < order_detail.length; i++) { %>
             <tr>
-                <td><%= order_detail[i].Order_ID %></td>
+                <!-- <td><%= order_detail[i].Order_ID %></td> -->
                 <td><%= order_detail[i].Order_dID %></td>
                 <% for(var j=0; j < user.length; j++) { 
                         if(order_detail[i].user_ID == user[j].user_id){

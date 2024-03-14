@@ -294,7 +294,7 @@ app.get('/order/update/:id', async (req, res) => {
 
 app.post('/order/update/:id', async (req, res) => {
    try {
-      const data = { Order_dID: req.body.Order_dID};
+       const data = { Order_dID: req.body.Order_dID};
        await axios.put(base_url + '/order/' + req.params.id, data);
        res.redirect('/order');
    } catch (err) {
